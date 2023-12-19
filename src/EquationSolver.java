@@ -8,20 +8,34 @@ public class EquationSolver {
         System.out.print("Введите уравнение: ");
         String equation = scanner.nextLine();
 
-        // Извлекаем неизвестное и числа из уравнения
-        char unknown = equation.charAt(0);
-        char operator = equation.charAt(1);
-        int number1 = Character.getNumericValue(equation.charAt(2));
-        int number2 = Character.getNumericValue(equation.charAt(4));
+        //Разбиваем уравнение на компаненты
+        char s1 = equation.charAt(0);
+        char s2 = equation.charAt(1);
+        char s3 = equation.charAt(2);
+        char s5 = equation.charAt(4);
 
-        // Вычисляем значение неизвестного
-        int result;
-        if (operator == '+') {
-            result = number2 - number1;
-        } else {
-            result = number1 - number2;
+        int x = 0;
+
+        // Решаем уравнение в зависимости от положения неизвестного x и символа '+' или '-'
+        if (s1 == 'x') {
+            if (s2 == '+') {
+                x = Character.getNumericValue(s5) - Character.getNumericValue(s3);
+            } else if (s2 == '-') {
+                x = Character.getNumericValue(s5) + Character.getNumericValue(s3);
+            }
+        } else if (s3 == 'x') {
+            if (s2 == '+') {
+                x = Character.getNumericValue(s5) - Character.getNumericValue(s1);
+            } else if (s2 == '-') {
+                x = Character.getNumericValue(s5) + Character.getNumericValue(s1);
+            }
+        } else if (s5 == 'x') {
+            if (s2 == '+') {
+                x = Character.getNumericValue(s1) + Character.getNumericValue(s3);
+            } else if (s2 == '-') {
+                x = Character.getNumericValue(s1) - Character.getNumericValue(s3);
+            }
         }
-        System.out.println("Неизвестное x равно " + result);
-
+        System.out.println("X = " +x); // Выводим значение x
     }
 }
