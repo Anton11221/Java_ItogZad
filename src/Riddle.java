@@ -7,7 +7,7 @@ public class Riddle {
         int tries = 3; // количество попыток
         boolean hint = false; // использована ли подсказка
 
-        System.out.println("Одгадай загадку!");
+        System.out.println("Отгадай загадку!");
         System.out.println("Сидит дед, во сто шуб одет, кто его раздевает, тот слезы проливает");
         System.out.println("У тебя есть три попытки и одна \"Подсказка\"");
 
